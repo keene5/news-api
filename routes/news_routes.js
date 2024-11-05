@@ -25,17 +25,17 @@ router.post("/addQuery", async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+router.get("/getAll",  async (req, res) => {
+  try {
+    const data = await Model.find();
+    if (data) {
+      res.status(200).json(data);
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
-// router.get("/getAll", checkAccessLevel(['admin', 'write', 'read']), async (req, res) => {
-//   try {
-//     const data = await Model.find();
-//     if (data) {
-//       res.status(200).json(data);
-//     }
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// });
 
 // router.get("/getCustomer/:id", checkAccessLevel(['admin', 'write', 'read']), async (req, res) => {
 //   try {
