@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "ed304eaa-7744-4aa5-85d5-370f2e075c89",
+		"name": "NewsApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3106402",
+		"_collection_link": "https://gold-eclipse-639701.postman.co/workspace/My-Workspace~ae48d011-b1dc-4f60-8db9-740b614027ac/collection/3106402-ed304eaa-7744-4aa5-85d5-370f2e075c89?action=share&source=collection_link&creator=3106402"
+	},
+	"item": [
+		{
+			"name": "InternalApi",
+			"item": [
+				{
+					"name": "addQuery",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Query2\",\r\n\"text\": \"someQuery\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/addQuery",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"addQuery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllQueriesFromDatabase",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllQueriesFromFile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/getQueriesFromFile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"getQueriesFromFile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "createUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"userId\": \"n0053247\",\r\n\"password\": \"Mooj\",\r\n\"accessLimit\": \"unlimited\",\r\n\"accessLevel\": \"write\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/createUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"createUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAllUsers",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "44afafbb-6a7f-4b7d-a863-80df6e2736c9",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/deleteAllUsers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"deleteAllUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "authenticateUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"userId\": \"n0053247\",\r\n\"password\": \"Mooje\",\r\n\"accessLimit\": \"unlimited\",\r\n\"accessLevel\": \"write\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getallUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "04eb56ca-a687-493d-95a2-63e946a14273rer",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ExternalApiQueryHandlers",
+			"item": [
+				{
+					"name": "getByTopic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/getNews/techcrunch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"getNews",
+								"techcrunch"
+							],
+							"query": [
+								{
+									"key": "api",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postByTopic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"country\": \"us\",\r\n    \"pageSize\": 3,\r\n    \"q\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/postNews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"postNews"
+							],
+							"query": [
+								{
+									"key": "api",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
