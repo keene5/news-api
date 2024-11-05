@@ -12,6 +12,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     unique: false,
   },
+  accessLimit: {
+    type: String,
+    enum: ['limited', 'unlimited'],
+    required: true
+  },
   accessLevel: {
     type: String,
     enum: ['read', 'write', 'admin'],

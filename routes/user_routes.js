@@ -9,10 +9,10 @@ const { models } = require("mongoose");
 module.exports = userRouter;
 
 userRouter.post('/createUser', async (req, res, next) => {
-  const { userId, password, accessLevel } = req.body;
+  const { userId, password, accessLimit, accessLevel } = req.body;
 
   // Validate the incoming request
-  if (!password || !userId || !accessLevel) {
+  if (!password || !userId || !accessLimit) {
     return res.status(400).json({ message: 'password and access level userId are required.' });
   }
 
@@ -27,6 +27,7 @@ userRouter.post('/createUser', async (req, res, next) => {
     const user = new User({
       userId,
       password,
+      accessLimit,
       accessLevel,
     });
 
