@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors');
 const mongoose = require("mongoose");
 require("dotenv").config();
 const routes = require("./routes/news_routes");
@@ -15,6 +16,7 @@ function configureApp() {
   app.use("/api", routes);
   app.use("/api", userRoutes);
   app.use("/api", externalRoutes);
+  app.use(cors);
   //app.use(express.static(path.join(__dirname, "public")));
   const port = process.env.PORT;
   app.listen(port, () => {
