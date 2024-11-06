@@ -28,6 +28,21 @@ router.post("/addQuery", async (req, res) => {
   }
 });
 
+
+router.delete("/deleteAllQueries", async (req, res, next) => {
+  try {
+    // Delete all documents from the User collection
+    const result = await QueryModel.deleteMany({});
+
+    // Send a response with the count of deleted documents
+    res.status(200).json({ message: "All queries deleted successfully", deletedCount: result.deletedCount });
+  } catch (error) {
+    console.error("Error during deletion of all queries:", error);
+    next(error); // Pass errors to the error handling middleware
+  }
+});
+
+
 router.get("/getAllQueries",  async (req, res) => {
   try {
     const data = await QueryModel.find();

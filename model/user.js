@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { v4: uuidv4 } = require('uuid'); // To generate a unique API key
 
 const userSchema = new mongoose.Schema({
-  userId: {
+  user: {
     type: String,
     required: true,
     unique: true,
@@ -11,17 +11,8 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     unique: false,
-  },
-  accessLimit: {
-    type: String,
-    enum: ['limited', 'unlimited'],
-    required: true
-  },
-  accessLevel: {
-    type: String,
-    enum: ['read', 'write', 'admin'],
-    required: true,
-  },
-});
+  }
 
-module.exports = mongoose.model('User', userSchema);
+  });
+
+  module.exports = mongoose.model('User', userSchema, 'users');
