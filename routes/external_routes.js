@@ -5,7 +5,7 @@ const https = require('https'); // Add this line to require the https module
 const { Query } = require("mongoose");
 
 const urlToNews = 'https://newsapi.org/v2/top-headlines';
-const apiKey = '20dc12da8ef34cfb8252bd9b0a8401b4';
+const apiKey = 'ffba55508e784727964bcabc1a3d1f41';
 
 externalRouter.get("/getNews/:query", async (req, res) => {
   try {
@@ -45,11 +45,7 @@ externalRouter.post("/postNews", async (req, res) => {
       .then(data => {
         console.log(data);
         if (data) {
-         // const articles = data.articles;
-          // const extractedData = articles.map(article => ({
-          //   title: article.title,
-          //   url: article.url
-          // }));
+
           return res.status(200).json(data);
         }
         return res.status(404).json({ message: "No News Found" });

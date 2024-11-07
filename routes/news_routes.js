@@ -47,7 +47,7 @@ router.delete("/deleteAllQueries", async (req, res, next) => {
 
 router.get("/getAllQueries", async (req, res) => {
   try {
-    const data = await QueryModel.find().select("-_id");
+    const data = await QueryModel.find().select("-queryId -_id -__v");
     if (data) {
       res.status(200).json(data);
     }
