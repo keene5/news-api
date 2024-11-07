@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { v4: uuidv4 } = require("uuid");
 
-const dataSchema = new mongoose.Schema(
+const querySchema = new mongoose.Schema(
   {
     queryId: {
       type: String,
@@ -9,16 +9,21 @@ const dataSchema = new mongoose.Schema(
       default: uuidv4, // Automatically generate a unique ID
       required: true,
     },
-    name: {
+    queryName: {
       required: true,
       type: String,
     },
-    text: {
+    q: {
       required: true,
       type: String,
     },
-  },
-  { collection: process.env.QUERY_COLLECTION}
-);
-
-module.exports = mongoose.model("Query", dataSchema);
+    language: {
+      required: true,
+      type: String,
+    },
+    pageSize: {
+      required: true,
+      type: Number,
+    },
+  });
+  module.exports = mongoose.model('Query', querySchema, 'queries');

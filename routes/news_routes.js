@@ -10,12 +10,14 @@ module.exports = router;
 
 router.post("/addQuery", async (req, res) => {
   const data = new QueryModel({
-    name: req.body.name,
-    text: req.body.text,
+    queryName: req.body.queryName,
+    q: req.body.q,
+    language: req.body.language,
+    pageSize: req.body.pageSize,
   });
   try {
     const dataToSave = await data.save();
-    if (!data.name) {
+    if (!data.queryName) {
       return res.status(400)
         .send({ error: "Query must have a name and timestamp" });
     }
@@ -43,9 +45,9 @@ router.delete("/deleteAllQueries", async (req, res, next) => {
 });
 
 
-router.get("/getAllQueries",  async (req, res) => {
+router.get("/getAllQueries", async (req, res) => {
   try {
-    const data = await QueryModel.find();
+    const data = await QueryModel.find().select("-_id");
     if (data) {
       res.status(200).json(data);
     }
